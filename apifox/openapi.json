@@ -3,10 +3,1014 @@
   "info": {
     "title": "Blogseo",
     "description": "",
-    "version": ""
+    "version": "1.0.0"
   },
-  "tags": [],
+  "tags": [
+    {
+      "name": "AI"
+    },
+    {
+      "name": "Map"
+    }
+  ],
   "paths": {
+    "/v1/ask/cta": {
+      "connect": {
+        "summary": "AI_CTAGenerate",
+        "deprecated": false,
+        "description": "Corresponding Model Name. To better enhance service quality, we will make periodic changes to the models provided by this service, including but not limited to model on/offlining and adjustments to model service capabilities. We will notify you of such changes through appropriate means such as announcements or message pushes where feasible.",
+        "operationId": "AI_CTAGenerate",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiCTAGenerateRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiCTAGenerateReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/desc": {
+      "post": {
+        "summary": "AI_AskDesc",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_AskDesc",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "标签",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tag 1",
+                "tag 2",
+                "tag 3"
+              ],
+              "default": "TTT",
+              "example": "aa"
+            }
+          },
+          {
+            "name": "name",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "name1",
+                "name2",
+                "name3"
+              ],
+              "default": "NAME",
+              "example": "nn"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ww",
+                "ss",
+                "dd"
+              ],
+              "default": "SS",
+              "example": "qwe"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiAskDescRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskDescReply"
+                },
+                "example": "<html>\n\t<head> <title>404 Not Found </title> </head>\n\t<body bgcolor=\"white\">\n\t\t<center> <h1>404 Not Found </h1> </center>\n\t</body>\n</html>\n"
+              }
+            },
+            "headers": {}
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          },
+          "504": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/faq": {
+      "post": {
+        "summary": "AI_AskFaqSchema",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_AskFaqSchema",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskFaqSchemaReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/image": {
+      "post": {
+        "summary": "AI_GenerateImage",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_GenerateImage",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiGenerateImageRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiGenerateImageReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/keyword/info": {
+      "post": {
+        "summary": "AI_GetKeywordInfo",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_GetKeywordInfo",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keyword": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "se": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword",
+                  "se"
+                ]
+              },
+              "examples": {
+                "1": {
+                  "value": {
+                    "keyword": [
+                      "dolore mollit"
+                    ],
+                    "se": "quis"
+                  }
+                },
+                "2": {
+                  "value": {
+                    "keyword": [
+                      "ullamco consectetur officia magna"
+                    ],
+                    "se": "culpa Lorem"
+                  },
+                  "summary": "mmm"
+                },
+                "3": {
+                  "value": {
+                    "keyword": [
+                      "consectetur quis pariatur"
+                    ],
+                    "se": "nostrud dolor adipisicing"
+                  },
+                  "summary": "示例 34"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiGetKeywordInfoReply"
+                },
+                "example": "<html>\n\t<head> <title>404 Not Found </title> </head>\n\t<body bgcolor=\"white\">\n\t\t<center> <h1>404 Not Found </h1> </center>\n\t</body>\n</html>\n"
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/keywords": {
+      "post": {
+        "summary": "AI_AskKeywords",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_AskKeywords",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiAskKeywordsRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskKeywordsReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/links": {
+      "post": {
+        "summary": "AI_AskLinks",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_AskLinks",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiAskLinksRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskLinksReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/product/desc": {
+      "post": {
+        "summary": "AI_AskProductDesc",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_AskProductDesc",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiAskProductDescRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskProductDescReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/section/image": {
+      "post": {
+        "summary": "AI_GenerateSectionImage",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_GenerateSectionImage",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiGenerateSectionImageRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiGenerateSectionImageReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/sections": {
+      "post": {
+        "summary": "AI_AskSections",
+        "deprecated": false,
+        "description": "支持点击定位功能",
+        "operationId": "AI_AskSections",
+        "tags": [
+          "AI",
+          "Map"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/atom+xml",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiAskSectionsRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskSectionsReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/title/image": {
+      "post": {
+        "summary": "AI_GenerateCoverImage",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_GenerateCoverImage",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiGenerateCoverImageRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiGenerateCoverImageReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/ask/titles": {
+      "post": {
+        "summary": "AI_AskTitles",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_AskTitles",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiAskTitlesRequest"
+              },
+              "examples": {
+                "1": {
+                  "value": {
+                    "id": "21"
+                  },
+                  "summary": "Creates an access token that a third-party"
+                },
+                "2": {
+                  "value": {
+                    "id": "9"
+                  },
+                  "summary": "示例 2"
+                },
+                "3": {
+                  "value": {
+                    "id": "52"
+                  },
+                  "summary": "Redirect URI requirements for public integrations"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiAskTitlesReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/search/images": {
+      "post": {
+        "summary": "AI_SearchPhotos",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_SearchPhotos",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiSearchPhotosRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiSearchPhotosReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/search/images/download": {
+      "post": {
+        "summary": "AI_DownloadPhoto",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_DownloadPhoto",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiDownloadPhotoRequest"
+              },
+              "examples": {
+                "1": {
+                  "value": {
+                    "downloadLocation": "esse ipsum"
+                  },
+                  "summary": "示例 1"
+                },
+                "2": {
+                  "value": {
+                    "downloadLocation": "Lorem minim occaecat Ut"
+                  },
+                  "summary": "示例 2"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiDownloadPhotoReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v2/ask/cta": {
+      "post": {
+        "summary": "AI_CTAGenerateV2",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_CTAGenerateV2",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiCTAGenerateV2Request"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiCTAGenerateV2Reply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v2/ask/section/image": {
+      "post": {
+        "summary": "AI_GenerateSectionImageV2",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_GenerateSectionImageV2",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiGenerateSectionImageRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiGenerateSectionImageReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v2/ask/title/image": {
+      "post": {
+        "summary": "AI_GenerateCoverImageV2",
+        "deprecated": false,
+        "description": "",
+        "operationId": "AI_GenerateCoverImageV2",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/aiGenerateCoverImageRequest"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/aiGenerateCoverImageReply"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "b-2_接口",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/users/{userid}": {
+      "get": {
+        "summary": "ai_generateiamage",
+        "deprecated": false,
+        "description": "",
+        "operationId": "192191",
+        "tags": [
+          "AI",
+          "Map"
+        ],
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "名称",
+            "required": true,
+            "example": [],
+            "schema": {
+              "type": "string",
+              "enum": [
+                "12",
+                "123",
+                "1234"
+              ]
+            }
+          },
+          {
+            "name": "name_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "分组",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "状态",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dad",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "10",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "C1_接口",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "mmmmmm": {
+        "summary": "sad",
+        "deprecated": false,
+        "description": "---\ntitle: Introduction\nslug: designer/reference/introduction\ndescription: >-\n  Webflow's Designer APIs let you build apps that programmatically control the\n  Webflow Designer.\nhidden: false\nlayout: overview\nhide-toc: true\n'og:title': Webflow's Designer APIs\n'og:description': >-\n  Webflow's Designer APIs let you build apps that programmatically control the\n  Webflow Designer.\n'og:keywords': Webflow API\n---\n[shsh](https://www.baidu.com)\n<video autoplay loop muted style=\"width:100%;\">  <source src=\"https://dhygzobemt712.cloudfront.net/Web/developers/videos/24005_API%20Documentation_Introduction_v3_24fps.webm\" type=\"video/webm\" />  Your browser does not support HTML video.</video>\n\nWebflow's Designer APIs let you build apps that programmatically control the Webflow Designer. With these APIs, developers can create tools that automatically add elements to pages, apply styles, manage components, and streamline design workflows.\n\n<br/>\n# Getting started\nTo start using the Designer APIs, [register a Webflow App](/data/docs/getting-started-apps) and create a [Designer Extension](/designer/docs/getting-started-designer-extensions) using the [Webflow CLI.](/designer/reference/webflow-cli) Once you have your Designer Extension running locally on a Webflow project, you can start using the Designer APIs to create elements, styles, components, and more.\n\n<CardGroup>\n    <Card\n    title=\"Create your first extension\"\n    iconPosition=\"left\"\n    iconSize=\"12\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/App.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/App.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }\n    href=\"/designer/docs/getting-started-designer-extensions\"\n    >\n        Follow our step-by-step guide to build and deploy your first Designer Extension<br/><br/>\n        <a href=\"/designer/docs/getting-started-designer-extensions\">\n            <button class=\"cc-primary\">Create a Designer Extension</button>\n        </a>\n    </Card>\n    <Card\n    title=\"Try the interactive playground\" \n    iconPosition=\"left\"\n    iconSize=\"12\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/PublishDesigner.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/PublishDesigner.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }\n    href=\"https://webflow.com/oauth/authorize?response_type=code&client_id=19511de1ec410f9228d8dcbc9420e67916dea80d86d18f0c9a533eb475ea0f62\"\n    >\n        Experiment with live API calls in our interactive playground environment<br/><br/>\n            <button class=\"cc-primary\">Test the API playground</button>\n    </Card>\n</CardGroup>\n\n<br/>\n## Working with the Designer APIs\nThe Designer APIs provide several objects and methods that give Apps control over the Webflow Designer. Each object serves a specific purpose and contains methods to help you design automated workflows for Designers, Content Managers, and other teams working in Webflow.\n\n<CardGroup>\n<Card\n    title=\"Elements\"\n    href=\"/designer/reference/elements-overview\"\n    iconPosition=\"left\"\n    iconSize=\"12\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/Grid.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/Grid.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }>\n    Create and manipulate elements on the canvas, including their properties, content, and styles.\n</Card>\n<Card\n    title=\"Styles\"\n    href=\"/designer/reference/styles-overview\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/Styles.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/Styles.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }\n    iconPosition=\"left\"\n    iconSize=\"12\">\n    Manage reusable CSS classes to control the visual appearance of elements across your site.\n</Card>\n<Card\n    title=\"Components\"\n    href=\"/designer/reference/components-overview\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/Components.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/Components.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }\n    iconPosition=\"left\"\n    iconSize=\"12\">\n    Create and modify reusable element groups to maintain consistency across your designs.\n</Card>\n<Card\n    title=\"Variables\"\n    href=\"/designer/reference/variables-overview\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/Variable.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/Variable.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }\n    iconPosition=\"left\"\n    iconSize=\"12\">\n    Define and manage global values for numbers, percentages, sizes, colors, and fonts.\n</Card>\n<Card\n    title=\"Pages\"\n    href=\"/designer/reference/pages-overview\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/PageBuilding.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/PageBuilding.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }\n    iconPosition=\"left\"\n    iconSize=\"12\">\n    Manage page properties, SEO settings, and site structure.\n</Card>\n<Card\n    title=\"Extension Utilities\"\n    href=\"/designer/reference/extension-utilities\"\n    iconPosition=\"left\"\n    iconSize=\"12\"\n    icon={\n        <>\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Dark/48px/ToolNut.svg\" alt=\"\" className=\"hidden dark:block\" />\n        <img src=\"https://dhygzobemt712.cloudfront.net/Icons/Light/48px/ToolNut.svg\" alt=\"\" className=\"block dark:hidden\" />\n        </>\n    }>\n    Utility methods to manage your extension's behavior and interaction with the Designer.\n</Card>\n</CardGroup>\n\n<br/>\n## How the Designer APIs work in Webflow\nDesigner APIs are client-side JavaScript APIs that execute in the browser via an iframe. They interact with Webflow just as a user would - creating elements, applying styles, and modifying properties. This client-side approach allows your apps to directly manipulate the Designer interface in real-time, creating a seamless integration between your code and the Webflow environment.\n\nTo work with objects in your Webflow project, you'll need to reference the object using an appropriate method, and then make changes using the available methods.\n\n<Tabs>\n<Tab title=\"Referencing objects\">\n- **Existing Objects:** Get an existing object using an appropriate **GET** method. For example, to get the currently selected element, you can use the [`webflow.getSelectedElement()`](/designer/reference/get-selected-element) method. You can see all the methods available for retrieving objects in the [Designer API Reference](/designer/reference/elements-overview).\n\n- **New Objects:** Create a new object using an appropriate **CREATE** method. When you create a new object, Webflow will always return a reference to the new object. For example, to create a new element, you can use the [`element.after()`](/designer/reference/insert-element-after) method. You can see all the methods available for creating objects in the [Designer API Reference](/designer/reference/elements-overview). \n\n<div style={{maxWidth: \"80%\", margin: \"0 auto\", display: \"flex\", justifyContent: \"center\"}}>\n<Frame\n    background=\"subtle\"\n    caption=\"`webflow.getSelectedElement()` returns a reference to the currently selected element.\"\n>\n<img src=\"file:24c90933-21b4-4c14-826c-8ac4121c2b3d\" alt=\"Getting a reference to a resource\" />\n</Frame>\n</div>\n</Tab>  \n\n<Tab title=\"Modifying objects\">\nOnce you've referenced an object, you can start manipulating it using the available methods on that object. Each object has its own set of methods, so be sure to refer to the [Designer API Reference](/designer/reference/elements-overview) for the object you're working with.\n\nIn the example below, we're using the [`element.setCustomAttribute()`](/designer/reference/custom-attributes/setCustomAttribute) method to set a custom attribute on the element. When the custom attribute is set, the element will be updated in the Webflow Designer, and the information about the updated object will be returned to the Designer Extension.\n\n<div style={{maxWidth: \"80%\", margin: \"0 auto\", display: \"flex\", justifyContent: \"center\"}}>\n<Frame\n    background=\"subtle\"\n    caption=\"`element.setCustomAttribute()` sets a custom attribute on the element, then sends the updated object back to the Designer Extension.\" \n>\n<img src=\"file:7c372775-b2d3-45fc-acea-b0f3b402c1d5\" alt=\"Saving changes to an element\" />\n</Frame>\n</div>\n</Tab>\n</Tabs>\n",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID 编号",
+            "required": false,
+            "example": "007",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "propfind": {
+        "summary": "未命名接口",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/me": {
       "get": {
         "summary": "Get authenticated user",
@@ -1505,13 +2509,71 @@
         "security": []
       }
     },
-    "/": {
-      "mmmmmm": {
-        "summary": "sad",
+    "/category/{id}": {
+      "get": {
+        "summary": "通过ID获取类别",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/chat/completions": {
+      "post": {
+        "summary": "markdown测试",
         "deprecated": false,
         "description": "",
         "tags": [],
         "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "model": "qwen2.5-coder:14b",
+                "stream": true,
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful assistant."
+                  },
+                  {
+                    "role": "user",
+                    "content": "请生成一份Markdown格式的内容，包含所有Markdown语法。请不要用代码块包裹内容。"
+                  }
+                ]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "",
@@ -1531,8 +2593,569 @@
     }
   },
   "components": {
-    "schemas": {},
-    "securitySchemes": {}
+    "schemas": {
+      "AskSectionsSections": {
+        "type": "object",
+        "properties": {
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SearchPhotosImages": {
+        "type": "object",
+        "properties": {
+          "raw": {
+            "type": "string"
+          },
+          "full": {
+            "type": "string"
+          },
+          "regular": {
+            "type": "string"
+          },
+          "small": {
+            "type": "string"
+          },
+          "medium": {
+            "type": "string"
+          },
+          "large": {
+            "type": "string"
+          },
+          "thumb": {
+            "type": "string"
+          },
+          "download": {
+            "type": "string"
+          },
+          "downloadLocation": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchPhotosPhoto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "color": {
+            "type": "string"
+          },
+          "blurHash": {
+            "type": "string"
+          },
+          "likes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "likedByUser": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/SearchPhotosUser"
+          },
+          "urls": {
+            "$ref": "#/components/schemas/SearchPhotosImages"
+          }
+        }
+      },
+      "SearchPhotosUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "instagramUsername": {
+            "type": "string"
+          },
+          "twitterUsername": {
+            "type": "string"
+          },
+          "portfolioUrl": {
+            "type": "string"
+          },
+          "profileImage": {
+            "$ref": "#/components/schemas/SearchPhotosImages"
+          }
+        }
+      },
+      "aiArticleLink": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskDescReply": {
+        "type": "object",
+        "properties": {
+          "desc": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskDescRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskFaqSchemaReply": {
+        "type": "object",
+        "properties": {
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskFaqSchemaRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskKeywordsReply": {
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/aiitem"
+            }
+          }
+        }
+      },
+      "aiAskKeywordsRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "se": {
+            "type": "string"
+          },
+          "lang": {
+            "$ref": "#/components/schemas/voLanguage"
+          }
+        }
+      },
+      "aiAskLinksReply": {
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/aiArticleLink"
+            }
+          },
+          "inventoryCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "aiAskLinksRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "linkAmount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "discardLinks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "aiAskProductDescReply": {
+        "type": "object",
+        "properties": {
+          "output": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskProductDescRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskSectionsReply": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AskSectionsSections"
+            }
+          }
+        }
+      },
+      "aiAskSectionsRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "resultsCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sectionsCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tone": {
+            "type": "string"
+          }
+        }
+      },
+      "aiAskTitlesReply": {
+        "type": "object",
+        "properties": {
+          "titles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "aiAskTitlesRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "aiCTAGenerateReply": {
+        "type": "object",
+        "properties": {
+          "output": {
+            "type": "string"
+          }
+        }
+      },
+      "aiCTAGenerateRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "aiCTAGenerateV2Reply": {
+        "type": "object",
+        "properties": {
+          "output": {
+            "type": "string"
+          }
+        }
+      },
+      "aiCTAGenerateV2Request": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "aiDownloadPhotoReply": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string"
+          }
+        }
+      },
+      "aiDownloadPhotoRequest": {
+        "type": "object",
+        "properties": {
+          "downloadLocation": {
+            "type": "string"
+          }
+        }
+      },
+      "aiGenerateCoverImageReply": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "aiGenerateCoverImageRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "aiGenerateImageReply": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "aiGenerateImageRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          }
+        }
+      },
+      "aiGenerateSectionImageReply": {
+        "type": "object",
+        "properties": {
+          "urls": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "properties": {}
+          }
+        }
+      },
+      "aiGenerateSectionImageRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "aiGetKeywordInfoReply": {
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/aiitem"
+            }
+          }
+        }
+      },
+      "aiGetKeywordInfoRequest": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "se": {
+            "type": "string"
+          }
+        }
+      },
+      "aiSearchPhotosReply": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalNum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchPhotosPhoto"
+            }
+          }
+        }
+      },
+      "aiSearchPhotosRequest": {
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "aiitem": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string"
+          },
+          "cpc": {
+            "type": "string"
+          },
+          "volume": {
+            "type": "string"
+          },
+          "kd": {
+            "type": "string"
+          }
+        }
+      },
+      "voLanguage": {
+        "type": "string",
+        "enum": [
+          "English_US",
+          "Spanish",
+          "Hindi",
+          "Portuguese",
+          "Russian",
+          "Arabic",
+          "Bengali",
+          "Chinese",
+          "French",
+          "Japanese",
+          "Indonesian",
+          "Urdu",
+          "German",
+          "Korean",
+          "Turkish",
+          "Italian",
+          "Cantonese",
+          "Polish",
+          "Vietnamese",
+          "Czech",
+          "Danish",
+          "Dutch",
+          "Estonian",
+          "Finnish",
+          "Greek",
+          "Hungarian",
+          "Latvian",
+          "Lithuanian",
+          "Maltese",
+          "Slovak",
+          "Slovenian",
+          "Swedish",
+          "English_UK",
+          "Bulgarian",
+          "Romanian"
+        ],
+        "default": "English_US"
+      },
+      "smallcool": {
+        "type": "object",
+        "properties": {},
+        "title": "cat"
+      }
+    },
+    "securitySchemes": {
+      "1": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "color"
+      },
+      "mana": {
+        "scheme": "bearer",
+        "type": "http"
+      },
+      "dudu": {
+        "type": "http",
+        "scheme": "oauth"
+      },
+      "wo": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
   },
   "servers": [],
   "security": []
