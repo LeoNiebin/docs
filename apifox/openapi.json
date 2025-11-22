@@ -137,7 +137,7 @@
           "201": {
             "description": "",
             "content": {
-              "*/*": {
+              "text/html": {
                 "schema": {
                   "type": "object",
                   "properties": {}
@@ -149,7 +149,7 @@
           "504": {
             "description": "",
             "content": {
-              "*/*": {
+              "text/html": {
                 "schema": {
                   "type": "object",
                   "properties": {}
@@ -1344,53 +1344,6 @@
               }
             },
             "headers": {}
-          },
-          "x-400:Malformed Request": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "message": {
-                          "type": "string"
-                        },
-                        "details": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "message",
-                        "details"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ]
-                },
-                "example": {
-                  "error": {
-                    "name": "malformedRequestError",
-                    "message": "Found 1 errors with the supplied collection.",
-                    "details": [
-                      ": must have required property 'info'"
-                    ]
-                  }
-                }
-              }
-            },
-            "headers": {}
           }
         },
         "security": []
@@ -1544,64 +1497,6 @@
                 "example": {
                   "error": "rateLimited",
                   "message": "Rate limit exceeded. Please retry after 1669048687"
-                }
-              }
-            },
-            "headers": {}
-          },
-          "x-200:Filter by Workspace": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "collections": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string"
-                          },
-                          "owner": {
-                            "type": "string"
-                          },
-                          "createdAt": {
-                            "type": "string"
-                          },
-                          "updatedAt": {
-                            "type": "string"
-                          },
-                          "uid": {
-                            "type": "string"
-                          },
-                          "isPublic": {
-                            "type": "boolean"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "required": [
-                    "collections"
-                  ]
-                },
-                "example": {
-                  "collections": [
-                    {
-                      "id": "dac5eac9-148d-a32e-b76b-3edee9da28f7",
-                      "name": "Cloud API",
-                      "owner": "12345678",
-                      "createdAt": "2022-04-12T10:29:46.000Z",
-                      "updatedAt": "2022-04-12T10:29:56.000Z",
-                      "uid": "12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7",
-                      "isPublic": true
-                    }
-                  ]
                 }
               }
             },
@@ -1889,206 +1784,6 @@
                 "example": {
                   "error": "rateLimited",
                   "message": "Rate limit exceeded. Please retry after 1669048687"
-                }
-              }
-            },
-            "headers": {}
-          },
-          "x-200:Get Collection with Access Token": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "collection": {
-                      "type": "object",
-                      "properties": {
-                        "info": {
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string"
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "_postman_id": {
-                              "type": "string"
-                            },
-                            "schema": {
-                              "type": "string"
-                            },
-                            "updatedAt": {
-                              "type": "string"
-                            },
-                            "fork": {
-                              "type": "object",
-                              "properties": {
-                                "label": {
-                                  "type": "string"
-                                },
-                                "createdAt": {
-                                  "type": "string"
-                                },
-                                "from": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "label",
-                                "createdAt",
-                                "from"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "name",
-                            "description",
-                            "_postman_id",
-                            "schema",
-                            "updatedAt",
-                            "fork"
-                          ]
-                        },
-                        "item": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "name": {
-                                "type": "string"
-                              },
-                              "id": {
-                                "type": "string"
-                              },
-                              "event": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "listen": {
-                                      "type": "string"
-                                    },
-                                    "script": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string"
-                                        },
-                                        "exec": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "type": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "id",
-                                        "exec",
-                                        "type"
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              "request": {
-                                "type": "object",
-                                "properties": {
-                                  "url": {
-                                    "type": "string"
-                                  },
-                                  "method": {
-                                    "type": "string"
-                                  },
-                                  "header": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "object",
-                                      "properties": {
-                                        "key": {
-                                          "type": "string"
-                                        },
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "required": [
-                                  "url",
-                                  "method",
-                                  "header"
-                                ]
-                              },
-                              "response": {
-                                "type": "array",
-                                "items": {}
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "required": [
-                        "info",
-                        "item"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "collection"
-                  ]
-                },
-                "example": {
-                  "collection": {
-                    "info": {
-                      "name": "Test Collection",
-                      "description": "This is a test collection that makes a tiny request to Postman Echo service to get the list of request headers sent by a HTTP client.",
-                      "_postman_id": "12ece9e1-2abf-4edc-8e34-de66e74114d2",
-                      "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-                      "updatedAt": "2022-06-16T20:21:13.000Z",
-                      "fork": {
-                        "label": "Test Fork",
-                        "createdAt": "2022-06-16T19:51:44.069Z",
-                        "from": "12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2"
-                      }
-                    },
-                    "item": [
-                      {
-                        "name": "Test GET Response",
-                        "id": "82ee981b-e19f-962a-401e-ea34ebfb4848",
-                        "event": [
-                          {
-                            "listen": "test",
-                            "script": {
-                              "id": "7d2334fc-a84a-4c3d-b26c-7529afa4c0ae",
-                              "exec": [
-                                "pm.test(\"Status code is 200\", function () {",
-                                "    pm.response.to.have.status(200);",
-                                "});"
-                              ],
-                              "type": "text/javascript"
-                            }
-                          }
-                        ],
-                        "request": {
-                          "url": "https://echo.getpostman.com/headers",
-                          "method": "GET",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ]
-                        },
-                        "response": []
-                      }
-                    ]
-                  }
                 }
               }
             },
@@ -2463,43 +2158,6 @@
                 "example": {
                   "error": "rateLimited",
                   "message": "Rate limit exceeded. Please retry after 1669048687"
-                }
-              }
-            },
-            "headers": {}
-          },
-          "x-400:Collection ID Mismatch": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "message": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "message"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ]
-                },
-                "example": {
-                  "error": {
-                    "name": "collectionMismatchError",
-                    "message": "The collection ID in the path does not match the collection ID in the request body."
-                  }
                 }
               }
             },
@@ -3135,6 +2793,28 @@
         "type": "object",
         "properties": {},
         "title": "cat"
+      }
+    },
+    "responses": {
+      "123": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "title": "",
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "description": "分组"
+                }
+              },
+              "required": [
+                "category"
+              ]
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
