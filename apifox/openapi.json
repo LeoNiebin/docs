@@ -1013,7 +1013,7 @@
     },
     "/me": {
       "get": {
-        "summary": "Get authenticated user",
+        "summary": "未命名接口",
         "deprecated": false,
         "description": "Gets information about the authenticated user.",
         "tags": [],
